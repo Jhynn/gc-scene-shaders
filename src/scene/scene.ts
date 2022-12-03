@@ -39,7 +39,7 @@ const PARAMS = {
   color: "#5EDCAE",
 }
 
-const sphere = new Mesh(
+const sphere1 = new Mesh(
   new SphereGeometry(0.75, 32, 32),
   new MeshToonMaterial({
     color: new Color(PARAMS.color),
@@ -47,41 +47,83 @@ const sphere = new Mesh(
   })
 )
 
-sphere.position.set(0, 2, 0)
-sphere.castShadow = true
+sphere1.position.set(0, 2, 0)
+sphere1.castShadow = true
 
-const sphereCtrls = gui.addFolder({
-  title: "Sphere",
+const sphere1Ctrls = gui.addFolder({
+  title: "Sphere 1",
 })
 
-sphereCtrls.addInput(sphere.position, "x", {
+sphere1Ctrls.addInput(sphere1.position, "x", {
   label: "pos x",
   min: -10,
   max: 10,
   step: 0.1,
 })
 
-sphereCtrls.addInput(sphere.position, "y", {
+sphere1Ctrls.addInput(sphere1.position, "y", {
   label: "pos y",
   min: -10,
   max: 10,
   step: 0.1,
 })
 
-sphereCtrls.addInput(sphere.position, "z", {
+sphere1Ctrls.addInput(sphere1.position, "z", {
   label: "pos z",
   min: -10,
   max: 10,
   step: 0.1,
 })
 
-sphereCtrls.addInput(PARAMS, "color").on("change", (e) => {
-  sphere.material.color = new Color(e.value)
+sphere1Ctrls.addInput(PARAMS, "color").on("change", (e) => {
+  sphere1.material.color = new Color(e.value)
 })
 
-sphereCtrls.addInput(sphere.material, "wireframe")
-scene.add(sphere)
+sphere1Ctrls.addInput(sphere1.material, "wireframe")
+scene.add(sphere1)
 
+const sphere2 = new Mesh(
+  new SphereGeometry(0.75, 32, 32),
+  new MeshToonMaterial({
+    color: new Color(PARAMS.color),
+    wireframe: false,
+  })
+)
+
+sphere2.position.set(0, 4, 0)
+sphere2.castShadow = true
+
+const sphere2Ctrls = gui.addFolder({
+  title: "Sphere 2",
+})
+
+sphere2Ctrls.addInput(sphere2.position, "x", {
+  label: "pos x",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+sphere2Ctrls.addInput(sphere2.position, "y", {
+  label: "pos y",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+sphere2Ctrls.addInput(sphere2.position, "z", {
+  label: "pos z",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+sphere2Ctrls.addInput(PARAMS, "color").on("change", (e) => {
+  sphere2.material.color = new Color(e.value)
+})
+
+sphere2Ctrls.addInput(sphere2.material, "wireframe")
+scene.add(sphere2)
 
 const plane = new Mesh(
   new PlaneGeometry(10, 10, 10, 10),
