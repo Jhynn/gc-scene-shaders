@@ -9,9 +9,9 @@ import {
   PlaneGeometry,
   Color,
 } from "three"
-import { renderer, updateRenderer } from "/src/core/renderer"
 
-import { gui } from "/src/core/gui"
+import { updateRenderer } from "../core/renderer"
+import { gui } from "../core/gui"
 
 export const scene = new Scene()
 
@@ -60,25 +60,28 @@ sphereCtrls.addInput(sphere.position, "x", {
   max: 10,
   step: 0.1,
 })
+
 sphereCtrls.addInput(sphere.position, "y", {
   label: "pos y",
   min: -10,
   max: 10,
   step: 0.1,
 })
+
 sphereCtrls.addInput(sphere.position, "z", {
   label: "pos z",
   min: -10,
   max: 10,
   step: 0.1,
 })
+
 sphereCtrls.addInput(PARAMS, "color").on("change", (e) => {
   sphere.material.color = new Color(e.value)
 })
 
 sphereCtrls.addInput(sphere.material, "wireframe")
-
 scene.add(sphere)
+
 
 const plane = new Mesh(
   new PlaneGeometry(10, 10, 10, 10),
