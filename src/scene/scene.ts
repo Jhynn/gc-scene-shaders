@@ -2,12 +2,13 @@ import {
   Scene,
   AxesHelper,
   AmbientLight,
-  DirectionalLight,
   Mesh,
   SphereGeometry,
   MeshToonMaterial,
   PlaneGeometry,
   Color,
+  PointLight,
+  SpotLight,
 } from "three"
 
 import { updateRenderer } from "../core/renderer"
@@ -26,14 +27,63 @@ gui.addInput(axesHelper, "visible", {
 const ambientLight = new AmbientLight(0xffffff, 0.5)
 scene.add(ambientLight)
 
-const directionalLight = new DirectionalLight("#ffffff", 2)
-directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.camera.far = 500
-directionalLight.shadow.normalBias = 0.5
-directionalLight.position.set(0.25, 2, 2.25)
+const pointLight1 = new PointLight(0xffffff, 4, 4, 0.4)
+pointLight1.position.set(2, 2, 2)
+scene.add(pointLight1)
 
-scene.add(directionalLight)
+const pointLightCtrls = gui.addFolder({
+  title: "Point Light"
+})
+
+pointLightCtrls.addInput(pointLight1.position, "x", {
+  label: "pos x",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+pointLightCtrls.addInput(pointLight1.position, "y", {
+  label: "pos y",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+pointLightCtrls.addInput(pointLight1.position, "z", {
+  label: "pos z",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+const spotlight = new SpotLight(0xffffff, 20, 100, 0.8, 1, 2)
+spotlight.position.set(-2.4, 0, -2.6)
+scene.add(spotlight)
+
+const spotLightCtrls = gui.addFolder({
+  title: "Spot light"
+})
+
+spotLightCtrls.addInput(spotlight.position, "x", {
+  label: "pos x",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+spotLightCtrls.addInput(spotlight.position, "y", {
+  label: "pos y",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
+
+spotLightCtrls.addInput(spotlight.position, "z", {
+  label: "pos z",
+  min: -10,
+  max: 10,
+  step: 0.1,
+})
 
 const PARAMS = {
   color1: "#00FF7F",
@@ -92,7 +142,7 @@ const sphere2 = new Mesh(
   })
 )
 
-sphere2.position.set(0, 4, 0)
+sphere2.position.set(2, 2, 0)
 sphere2.castShadow = true
 
 const sphere2Ctrls = gui.addFolder({
@@ -135,7 +185,7 @@ const sphere3 = new Mesh(
   })
 )
 
-sphere3.position.set(0, 6, 0)
+sphere3.position.set(4, 2, 0)
 sphere3.castShadow = true
 
 const sphere3Ctrls = gui.addFolder({
