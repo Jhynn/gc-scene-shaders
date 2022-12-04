@@ -60,7 +60,7 @@ pointLightCtrls.addInput(pointLight1.position, "z", {
 })
 
 const spotlight = new SpotLight(0xffffff, 20, 100, 0.8, 1, 2)
-spotlight.position.set(-2.4, 0, -2.6)
+spotlight.position.set(-2.4, 2.8, -2.6)
 scene.add(spotlight)
 
 const spotLightCtrls = gui.addFolder({
@@ -87,13 +87,6 @@ spotLightCtrls.addInput(spotlight.position, "z", {
   max: 10,
   step: 0.1,
 })
-
-// spotLightCtrls.addInput(spotlight.intensity, "intensity", {
-//   label: "intensity",
-//   min: -10,
-//   max: 10,
-//   step: 0.1,
-// })
 
 const PARAMS = {
   color1: "#00FF7F",
