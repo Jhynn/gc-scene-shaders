@@ -17,10 +17,21 @@ Este projeto foi construído para fundamentar conceitos da disciplina de Computa
 <br>
 
 <p align="center">
-  <img alt="scene" src=".github/project.png" width="100%">
+  <img alt="scene" src="public/scene.png" width="100%">
 </p>
 
-Live demo: [https://scene.danilob.com.br](https://scene.danilob.com.br/)
+Live demo: [https://gc-scene-shaders.vercel.app](https://gc-scene-shaders.vercel.app/)
+
+## Descrição
+
+Foram adicionados três esferas, sendo cada uma de material diferente: 
+_Lambert_, _Phong_ e _Physical_ e duas fontes de luz: _SpotLight_ e 
+_PointLight_.
+
+## Componentes do grupo
+- [Matheus Miranda](https://github.com/Jhynn)
+- [Phillippy Cardelly](https://github.com/Cardelly)
+- [Teofilo Santos](https://github.com/TeofiloAlbuquerque)
 
 ## 🚀 Tecnologias
 
