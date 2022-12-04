@@ -9,6 +9,9 @@ import {
   Color,
   PointLight,
   SpotLight,
+  MeshLambertMaterial,
+  MeshPhongMaterial,
+  MeshPhysicalMaterial,
 } from "three"
 
 import { updateRenderer } from "../core/renderer"
@@ -85,6 +88,13 @@ spotLightCtrls.addInput(spotlight.position, "z", {
   step: 0.1,
 })
 
+// spotLightCtrls.addInput(spotlight.intensity, "intensity", {
+//   label: "intensity",
+//   min: -10,
+//   max: 10,
+//   step: 0.1,
+// })
+
 const PARAMS = {
   color1: "#00FF7F",
   color2: "#00FFFF",
@@ -93,7 +103,7 @@ const PARAMS = {
 
 const sphere1 = new Mesh(
   new SphereGeometry(0.75, 32, 32),
-  new MeshToonMaterial({
+  new MeshLambertMaterial({
     color: new Color(PARAMS.color1),
     wireframe: false,
   })
@@ -136,7 +146,7 @@ scene.add(sphere1)
 
 const sphere2 = new Mesh(
   new SphereGeometry(0.75, 32, 32),
-  new MeshToonMaterial({
+  new MeshPhongMaterial({
     color: new Color(PARAMS.color2),
     wireframe: false,
   })
@@ -179,7 +189,7 @@ scene.add(sphere2)
 
 const sphere3 = new Mesh(
   new SphereGeometry(0.75, 32, 32),
-  new MeshToonMaterial({
+  new MeshPhysicalMaterial({
     color: new Color(PARAMS.color3),
     wireframe: false,
   })
