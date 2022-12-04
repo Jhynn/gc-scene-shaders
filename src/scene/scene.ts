@@ -192,7 +192,7 @@ sphere3.position.set(4, 2, 0)
 sphere3.castShadow = true
 
 const sphere3Ctrls = gui.addFolder({
-  title: "Sphere 1",
+  title: "Sphere 3",
 })
 
 sphere3Ctrls.addInput(sphere3.position, "x", {
